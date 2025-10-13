@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+  <title>Payment - Success</title>
+
+
+  <link rel="stylesheet" type="text/css" href="./css/webbase.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/pages-paysuccess.css"/>
+</head>
+
+<body>
+<div id="app">
+  <!--head-->
+  <top></top>
+  <div class="cart py-container">
+    <!--logoArea-->
+    <div class="logoArea">
+      <a href="/">
+        <div class="logo">
+          <img src="./img/logo.png" alt="1"/>
+        </div>
+      </a>
+      <span>Payment Result</span>
+    </div>
+    <!--Main Content-->
+    <div class="paysuccess">
+      <div class="success">
+        <h3><img src="img/right.png" width="48" height="48">　Congratulations, payment successful!</h3>
+        <div class="paydetail">
+          <p>Payment Method: {{paymentTypes[order.paymentType - 1]}}</p>
+          <p>Payment Amount: ¥{{util.formatPrice(order.totalFee)}}</p>
+          <p>Expected delivery on {{sendDate}}</p>
+          <p class="button">
+            <a href="/myOrder.html" class="sui-btn btn-xlarge btn-danger">View Order</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/index.html" class="sui-btn btn-xlarge ">Continue Shopping</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="./js/vue.js"></script>
+<script src="./js/axios.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/top.js"></script>
+<script>
+  let app = new Vue({
+    el: "#app",
+    data(){
+      return {
+        order: {}, // Order information
+        paymentTypes: ["Alipay", "WeChat Pay", "Deduct Balance"],
+        util,
+        user: null,
+      }
+    },
+    created(){
+      util.store.set("return-url", location.href);
+      // Query user
+      this.user = util.store.get("user-info");
+      if(!this.user){
+        location.href = "/login.html";
+      }
+      // Query order by order id
+      axios.get("/orders/" + util.getUrlParam("orderId"))
+              .then(resp => {
+                // Order found
+                this.order = resp;
+              })
+              .catch(err => console.log(err));
+    },
+    methods:{
+
+    },
+    computed:{
+      sendDate(){
+        if(!this.order.createTime){
+          return "";
+        }
+        let d = new Date(this.order.createTime);
+        return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + (d.getDate() + 3)
+      }
+    }
+  });
+</script>
+</body>
+
+</html>
