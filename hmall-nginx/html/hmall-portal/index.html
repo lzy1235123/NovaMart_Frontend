@@ -10,9 +10,9 @@
   <link rel="stylesheet" type="text/css" href="css/pages-index.css"/>
 
   <style type="text/css">
-      .carousel-inner, .carousel-inner div {
-          z-index: 9;
-      }
+    .carousel-inner, .carousel-inner div {
+      z-index: 9;
+    }
   </style>
 </head>
 
@@ -56,13 +56,13 @@
             </div>
             <div class='hotwords'>
               <ul>
-                <li class='f-item'>New Arrival</li>
-                <li class='f-item'>Million Discount</li>
-                <li class='f-item'>$9.9 Group Buy</li>
-                <li class='f-item'>Spend $99 Save $30</li>
-                <li class='f-item'>Million Discount</li>
-                <li class='f-item'>$9.9 Group Buy</li>
-                <li class='f-item'>Office Supplies</li>
+                <li class='f-item' @click='search'>New Arrival</li>
+                <li class='f-item' @click='search'>Million Discount</li>
+                <li class='f-item' @click='search'>$9.9 Group Buy</li>
+                <li class='f-item' @click='search'>Spend $99 Save $30</li>
+                <li class='f-item' @click='search'>Million Discount</li>
+                <li class='f-item' @click='search'>$9.9 Group Buy</li>
+                <li class='f-item' @click='search'>Office Supplies</li>
               </ul>
             </div>
           </div>
@@ -88,14 +88,14 @@
           </div>
           <div class='yui3-u Center navArea' style="z-index: 50">
             <ul class='nav'>
-              <li class='f-item'>Fashion</li>
-              <li class='f-item'>Beauty</li>
-              <li class='f-item'>Supermarket</li>
-              <li class='f-item'>Global Shopping</li>
-              <li class='f-item'>Flash Sales</li>
-              <li class='f-item'>Group Buying</li>
-              <li class='f-item'>Interesting</li>
-              <li class='f-item'><a href='/test.html' target='_blank'>Flash Sale</a></li>
+              <li class='f-item' @click='search'>Fashion</li>
+              <li class='f-item' @click='search'>Beauty</li>
+              <li class='f-item' @click='search'>Supermarket</li>
+              <li class='f-item' @click='search'>Global Shopping</li>
+              <li class='f-item' @click='search'>Flash Sales</li>
+              <li class='f-item' @click='search'>Group Buying</li>
+              <li class='f-item' @click='search'>Interesting</li>
+              <li class='f-item'><a href='/test.html' target='_blank' @click.prevent='search'>Flash Sale</a></li>
             </ul>
           </div>
           <div class='yui3-u Right'></div>
@@ -112,394 +112,394 @@
           <div class="yui3-u Left all-sort-list">
             <div class="all-sort-list2">
               <div class="item bo">
-                <h3><a href="">Books, Audio, Digital</a></h3>
+                <h3><a href="" @click.prevent='search'>Books, Audio, Digital</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books</a></dt>
-                      <dd><a href="">Free</a><em><a href="">Fiction</a></em><a href="">Self-Help</a><em><a
-                          href="">Romance</a></em><em><a
-                          href="">Literature</a></em><em><a href="">Business</a></em><em><a href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books</a></dt>
+                      <dd><a href="" @click.prevent='search'>Free</a><em><a href="" @click.prevent='search'>Fiction</a></em><a href="" @click.prevent='search'>Self-Help</a><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a
+                              href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Home Appliances</a></h3>
+                <h3><a href="" @click.prevent='search'>Home Appliances</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 1</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 1</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                     <dl class="fore8">
                       <dt>Technology</dt>
-                      <dd><em><a href="">Science</a></em><em><a href="">IT</a></em><em><a href="">Architecture</a></em><em><a href="">Medicine</a></em><em><a
-                          href="">Engineering</a></em><em><a href="">Electronics</a></em><em><a href="">Agriculture</a></em><em><a href="">Natural Science</a></em>
+                      <dd><em><a href="" @click.prevent='search'>Science</a></em><em><a href="" @click.prevent='search'>IT</a></em><em><a href="" @click.prevent='search'>Architecture</a></em><em><a href="" @click.prevent='search'>Medicine</a></em><em><a
+                              href="" @click.prevent='search'>Engineering</a></em><em><a href="" @click.prevent='search'>Electronics</a></em><em><a href="" @click.prevent='search'>Agriculture</a></em><em><a href="" @click.prevent='search'>Natural Science</a></em>
                       </dd>
                     </dl>
                     <dl class="fore9">
                       <dt>Children</dt>
-                      <dd><em><a href="">Children</a></em><em><a href="">0-2 Years</a></em><em><a href="">3-6 Years</a></em><em><a
-                          href="">7-10 Years</a></em><em><a href="">11-14 Years</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Children</a></em><em><a href="" @click.prevent='search'>0-2 Years</a></em><em><a href="" @click.prevent='search'>3-6 Years</a></em><em><a
+                              href="" @click.prevent='search'>7-10 Years</a></em><em><a href="" @click.prevent='search'>11-14 Years</a></em></dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Mobile, Digital</a></h3>
+                <h3><a href="" @click.prevent='search'>Mobile, Digital</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 2</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 2</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Computers, Office</a></h3>
+                <h3><a href="" @click.prevent='search'>Computers, Office</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 3</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 3</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                     <dl class="fore8">
                       <dt>Technology</dt>
-                      <dd><em><a href="">Science</a></em><em><a href="">IT</a></em><em><a href="">Architecture</a></em><em><a href="">Medicine</a></em><em><a
-                          href="">Engineering</a></em><em><a href="">Electronics</a></em><em><a href="">Agriculture</a></em><em><a href="">Natural Science</a></em>
+                      <dd><em><a href="" @click.prevent='search'>Science</a></em><em><a href="" @click.prevent='search'>IT</a></em><em><a href="" @click.prevent='search'>Architecture</a></em><em><a href="" @click.prevent='search'>Medicine</a></em><em><a
+                              href="" @click.prevent='search'>Engineering</a></em><em><a href="" @click.prevent='search'>Electronics</a></em><em><a href="" @click.prevent='search'>Agriculture</a></em><em><a href="" @click.prevent='search'>Natural Science</a></em>
                       </dd>
                     </dl>
                     <dl class="fore9">
                       <dt>Children</dt>
-                      <dd><em><a href="">Children</a></em><em><a href="">0-2 Years</a></em><em><a href="">3-6 Years</a></em><em><a
-                          href="">7-10 Years</a></em><em><a href="">11-14 Years</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Children</a></em><em><a href="" @click.prevent='search'>0-2 Years</a></em><em><a href="" @click.prevent='search'>3-6 Years</a></em><em><a
+                              href="" @click.prevent='search'>7-10 Years</a></em><em><a href="" @click.prevent='search'>11-14 Years</a></em></dd>
                     </dl>
                     <dl class="fore10">
                       <dt>Education</dt>
-                      <dd><em><a href="">Textbooks</a></em><em><a href="">Exams</a></em><em><a href="">Language Learning</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Textbooks</a></em><em><a href="" @click.prevent='search'>Exams</a></em><em><a href="" @click.prevent='search'>Language Learning</a></em></dd>
                     </dl>
                     <dl class="fore11">
                       <dt>Others</dt>
-                      <dd><em><a href="">English Books</a></em><em><a href="">HK/Taiwan Books</a></em><em><a href="">Reference</a></em><em><a
-                          href="">Sets</a></em><em><a href="">Magazines</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>English Books</a></em><em><a href="" @click.prevent='search'>HK/Taiwan Books</a></em><em><a href="" @click.prevent='search'>Reference</a></em><em><a
+                              href="" @click.prevent='search'>Sets</a></em><em><a href="" @click.prevent='search'>Magazines</a></em></dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Home, Furniture, Kitchen</a></h3>
+                <h3><a href="" @click.prevent='search'>Home, Furniture, Kitchen</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 4</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 4</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                     <dl class="fore8">
                       <dt>Technology</dt>
-                      <dd><em><a href="">Science</a></em><em><a href="">IT</a></em><em><a href="">Architecture</a></em><em><a href="">Medicine</a></em><em><a
-                          href="">Engineering</a></em><em><a href="">Electronics</a></em><em><a href="">Agriculture</a></em><em><a href="">Natural Science</a></em>
+                      <dd><em><a href="" @click.prevent='search'>Science</a></em><em><a href="" @click.prevent='search'>IT</a></em><em><a href="" @click.prevent='search'>Architecture</a></em><em><a href="" @click.prevent='search'>Medicine</a></em><em><a
+                              href="" @click.prevent='search'>Engineering</a></em><em><a href="" @click.prevent='search'>Electronics</a></em><em><a href="" @click.prevent='search'>Agriculture</a></em><em><a href="" @click.prevent='search'>Natural Science</a></em>
                       </dd>
                     </dl>
                     <dl class="fore9">
                       <dt>Children</dt>
-                      <dd><em><a href="">Children</a></em><em><a href="">0-2 Years</a></em><em><a href="">3-6 Years</a></em><em><a
-                          href="">7-10 Years</a></em><em><a href="">11-14 Years</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Children</a></em><em><a href="" @click.prevent='search'>0-2 Years</a></em><em><a href="" @click.prevent='search'>3-6 Years</a></em><em><a
+                              href="" @click.prevent='search'>7-10 Years</a></em><em><a href="" @click.prevent='search'>11-14 Years</a></em></dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Clothing, Apparel</a></h3>
+                <h3><a href="" @click.prevent='search'>Clothing, Apparel</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 5</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 5</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                     <dl class="fore8">
                       <dt>Technology</dt>
-                      <dd><em><a href="">Science</a></em><em><a href="">IT</a></em><em><a href="">Architecture</a></em><em><a href="">Medicine</a></em><em><a
-                          href="">Engineering</a></em><em><a href="">Electronics</a></em><em><a href="">Agriculture</a></em><em><a href="">Natural Science</a></em>
+                      <dd><em><a href="" @click.prevent='search'>Science</a></em><em><a href="" @click.prevent='search'>IT</a></em><em><a href="" @click.prevent='search'>Architecture</a></em><em><a href="" @click.prevent='search'>Medicine</a></em><em><a
+                              href="" @click.prevent='search'>Engineering</a></em><em><a href="" @click.prevent='search'>Electronics</a></em><em><a href="" @click.prevent='search'>Agriculture</a></em><em><a href="" @click.prevent='search'>Natural Science</a></em>
                       </dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Health, Beauty</a></h3>
+                <h3><a href="" @click.prevent='search'>Health, Beauty</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 6</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 6</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                     <dl class="fore8">
                       <dt>Technology</dt>
-                      <dd><em><a href="">Science</a></em><em><a href="">IT</a></em><em><a href="">Architecture</a></em><em><a href="">Medicine</a></em><em><a
-                          href="">Engineering</a></em><em><a href="">Electronics</a></em><em><a href="">Agriculture</a></em><em><a href="">Natural Science</a></em>
+                      <dd><em><a href="" @click.prevent='search'>Science</a></em><em><a href="" @click.prevent='search'>IT</a></em><em><a href="" @click.prevent='search'>Architecture</a></em><em><a href="" @click.prevent='search'>Medicine</a></em><em><a
+                              href="" @click.prevent='search'>Engineering</a></em><em><a href="" @click.prevent='search'>Electronics</a></em><em><a href="" @click.prevent='search'>Agriculture</a></em><em><a href="" @click.prevent='search'>Natural Science</a></em>
                       </dd>
                     </dl>
                     <dl class="fore9">
                       <dt>Children</dt>
-                      <dd><em><a href="">Children</a></em><em><a href="">0-2 Years</a></em><em><a href="">3-6 Years</a></em><em><a
-                          href="">7-10 Years</a></em><em><a href="">11-14 Years</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Children</a></em><em><a href="" @click.prevent='search'>0-2 Years</a></em><em><a href="" @click.prevent='search'>3-6 Years</a></em><em><a
+                              href="" @click.prevent='search'>7-10 Years</a></em><em><a href="" @click.prevent='search'>11-14 Years</a></em></dd>
                     </dl>
                     <dl class="fore10">
                       <dt>Education</dt>
-                      <dd><em><a href="">Textbooks</a></em><em><a href="">Exams</a></em><em><a href="">Language Learning</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Textbooks</a></em><em><a href="" @click.prevent='search'>Exams</a></em><em><a href="" @click.prevent='search'>Language Learning</a></em></dd>
                     </dl>
                     <dl class="fore11">
                       <dt>Others</dt>
-                      <dd><em><a href="">English Books</a></em><em><a href="">HK/Taiwan Books</a></em><em><a href="">Reference</a></em><em><a
-                          href="">Sets</a></em><em><a href="">Magazines</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>English Books</a></em><em><a href="" @click.prevent='search'>HK/Taiwan Books</a></em><em><a href="" @click.prevent='search'>Reference</a></em><em><a
+                              href="" @click.prevent='search'>Sets</a></em><em><a href="" @click.prevent='search'>Magazines</a></em></dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Sports, Health</a></h3>
+                <h3><a href="" @click.prevent='search'>Sports, Health</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 7</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 7</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                   </div>
                   <div class="cat-right">
@@ -508,10 +508,10 @@
                       <dd>
                         <ul>
                           <li>
-                            <a href="">China Publishing House</a>
+                            <a href="" @click.prevent='search'>China Publishing House</a>
                           </li>
                           <li>
-                            <a href="">Posts & Telecom Press</a>
+                            <a href="" @click.prevent='search'>Posts & Telecom Press</a>
                           </li>
                         </ul>
                       </dd>
@@ -520,72 +520,72 @@
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Automotive</a></h3>
+                <h3><a href="" @click.prevent='search'>Automotive</a></h3>
                 <div class="item-list clearfix">
                   <div class="subitem">
                     <dl class="fore1">
-                      <dt><a href="">E-books 8</a></dt>
-                      <dd><em><a href="">Free</a></em><em><a href="">Fiction</a></em><em><a href="">Self-Help</a></em><em><a
-                          href="">Romance</a></em><em><a href="">Literature</a></em><em><a href="">Business</a></em><em><a
-                          href="">VIP Pass</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>E-books 8</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Free</a></em><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Self-Help</a></em><em><a
+                              href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Business</a></em><em><a
+                              href="" @click.prevent='search'>VIP Pass</a></em></dd>
                     </dl>
                     <dl class="fore2">
-                      <dt><a href="">Digital Music</a></dt>
-                      <dd><em><a href="">Pop</a></em><em><a href="">Classical</a></em><em><a href="">Rock/Rap</a></em><em><a
-                          href="">Jazz/Blues</a></em><em><a href="">Folk</a></em><em><a href="">Audiobooks</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Digital Music</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Pop</a></em><em><a href="" @click.prevent='search'>Classical</a></em><em><a href="" @click.prevent='search'>Rock/Rap</a></em><em><a
+                              href="" @click.prevent='search'>Jazz/Blues</a></em><em><a href="" @click.prevent='search'>Folk</a></em><em><a href="" @click.prevent='search'>Audiobooks</a></em></dd>
                     </dl>
                     <dl class="fore3">
-                      <dt><a href="">Audio/Video</a></dt>
-                      <dd><em><a href="">Music</a></em><em><a href="">Movies</a></em><em><a href="">Educational</a></em><em><a
-                          href="">Games</a></em></dd>
+                      <dt><a href="" @click.prevent='search'>Audio/Video</a></dt>
+                      <dd><em><a href="" @click.prevent='search'>Music</a></em><em><a href="" @click.prevent='search'>Movies</a></em><em><a href="" @click.prevent='search'>Educational</a></em><em><a
+                              href="" @click.prevent='search'>Games</a></em></dd>
                     </dl>
                     <dl class="fore4">
                       <dt>Arts & Literature</dt>
-                      <dd><em><a href="">Fiction</a></em><em><a href="">Literature</a></em><em><a href="">Youth</a></em><em><a
-                          href="">Biography</a></em><em><a href="">Art</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Fiction</a></em><em><a href="" @click.prevent='search'>Literature</a></em><em><a href="" @click.prevent='search'>Youth</a></em><em><a
+                              href="" @click.prevent='search'>Biography</a></em><em><a href="" @click.prevent='search'>Art</a></em></dd>
                     </dl>
                     <dl class="fore5">
                       <dt>Social Sciences</dt>
-                      <dd><em><a href="">History</a></em><em><a href="">Psychology</a></em><em><a href="">Politics/Military</a></em><em><a
-                          href="">Chinese Classics</a></em><em><a href="">Philosophy/Religion</a></em><em><a href="">Social Sciences</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>History</a></em><em><a href="" @click.prevent='search'>Psychology</a></em><em><a href="" @click.prevent='search'>Politics/Military</a></em><em><a
+                              href="" @click.prevent='search'>Chinese Classics</a></em><em><a href="" @click.prevent='search'>Philosophy/Religion</a></em><em><a href="" @click.prevent='search'>Social Sciences</a></em></dd>
                     </dl>
                     <dl class="fore6">
                       <dt>Business & Self-Help</dt>
-                      <dd><em><a href="">Economics</a></em><em><a href="">Finance/Investment</a></em><em><a href="">Management</a></em><em><a
-                          href="">Self-Help</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Economics</a></em><em><a href="" @click.prevent='search'>Finance/Investment</a></em><em><a href="" @click.prevent='search'>Management</a></em><em><a
+                              href="" @click.prevent='search'>Self-Help</a></em></dd>
                     </dl>
                     <dl class="fore7">
                       <dt>Lifestyle</dt>
-                      <dd><em><a href="">Parenting</a></em><em><a href="">Travel/Maps</a></em><em><a href="">Cooking</a></em><em><a
-                          href="">Fashion/Beauty</a></em><em><a href="">Home</a></em><em><a href="">Romance</a></em><em><a href="">Entertainment</a></em><em><a
-                          href="">Fitness</a></em><em><a href="">Comics/Humor</a></em><em><a href="">Sports</a></em></dd>
+                      <dd><em><a href="" @click.prevent='search'>Parenting</a></em><em><a href="" @click.prevent='search'>Travel/Maps</a></em><em><a href="" @click.prevent='search'>Cooking</a></em><em><a
+                              href="" @click.prevent='search'>Fashion/Beauty</a></em><em><a href="" @click.prevent='search'>Home</a></em><em><a href="" @click.prevent='search'>Romance</a></em><em><a href="" @click.prevent='search'>Entertainment</a></em><em><a
+                              href="" @click.prevent='search'>Fitness</a></em><em><a href="" @click.prevent='search'>Comics/Humor</a></em><em><a href="" @click.prevent='search'>Sports</a></em></dd>
                     </dl>
                     <dl class="fore8">
                       <dt>Technology</dt>
-                      <dd><em><a href="">Science</a></em><em><a href="">IT</a></em><em><a href="">Architecture</a></em><em><a href="">Medicine</a></em><em><a
-                          href="">Engineering</a></em><em><a href="">Electronics</a></em><em><a href="">Agriculture</a></em><em><a href="">Natural Science</a></em>
+                      <dd><em><a href="" @click.prevent='search'>Science</a></em><em><a href="" @click.prevent='search'>IT</a></em><em><a href="" @click.prevent='search'>Architecture</a></em><em><a href="" @click.prevent='search'>Medicine</a></em><em><a
+                              href="" @click.prevent='search'>Engineering</a></em><em><a href="" @click.prevent='search'>Electronics</a></em><em><a href="" @click.prevent='search'>Agriculture</a></em><em><a href="" @click.prevent='search'>Natural Science</a></em>
                       </dd>
                     </dl>
                   </div>
                 </div>
               </div>
               <div class="item">
-                <h3><a href="">Lottery, Travel</a></h3>
+                <h3><a href="" @click.prevent='search'>Lottery, Travel</a></h3>
               </div>
               <div class="item">
-                <h3><a href="">Finance, Crowdfunding</a></h3>
+                <h3><a href="" @click.prevent='search'>Finance, Crowdfunding</a></h3>
               </div>
               <div class="item">
-                <h3><a href="">Baby, Toys</a></h3>
+                <h3><a href="" @click.prevent='search'>Baby, Toys</a></h3>
               </div>
               <div class="item">
-                <h3><a href="">Bags</a></h3>
+                <h3><a href="" @click.prevent='search'>Bags</a></h3>
               </div>
               <div class="item">
-                <h3><a href="">Sports Outdoor</a></h3>
+                <h3><a href="" @click.prevent='search'>Sports Outdoor</a></h3>
               </div>
               <div class="item">
-                <h3><a href="">Bags</a></h3>
+                <h3><a href="" @click.prevent='search'>Bags</a></h3>
               </div>
             </div>
           </div>
@@ -599,120 +599,120 @@
               </ol>
               <div class="carousel-inner">
                 <div class="active item">
-                  <a href="/">
+                  <a href="/" @click.prevent='search'>
                     <img src="img/banner1.png"/>
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/">
+                  <a href="/" @click.prevent='search'>
                     <img src="img/banner2.jpg"/>
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/">
+                  <a href="/" @click.prevent='search'>
                     <img src="img/banner2.jpg"/>
                   </a>
 
                 </div>
               </div>
-              <a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a><a href="#myCarousel"
-                                                                                            data-slide="next"
-                                                                                            class="carousel-control right">›</a>
+              <a href="#myCarousel" data-slide="prev" class="carousel-control left" @click='search'>‹</a><a href="#myCarousel"
+                                                                                                            data-slide="next"
+                                                                                                            class="carousel-control right" @click='search'>›</a>
             </div>
           </div>
           <div class="yui3-u Right">
             <div class="news">
-              <h4><em class="fl">Black Horse News</em><span class="fr tip">More ></span></h4>
+              <h4><em class="fl">Black Horse News</em><span class="fr tip" @click='search'>More ></span></h4>
               <div class="clearix"></div>
               <ul class="news-list unstyled">
-                <li>
+                <li @click='search'>
                   <span class="bold">[Special Offer]</span> Back to School Season - 50% Off Electronics
                 </li>
-                <li>
+                <li @click='search'>
                   <span class="bold">[Announcement]</span> Back to School Season - 50% Off Electronics
                 </li>
-                <li>
+                <li @click='search'>
                   <span class="bold">[Special Offer]</span> Back to School Season - 50% Off Electronics
                 </li>
-                <li>
+                <li @click='search'>
                   <span class="bold">[Announcement]</span> Back to School Season - 50% Off Electronics
                 </li>
-                <li>
+                <li @click='search'>
                   <span class="bold">[Special Offer]</span> Back to School Season - 50% Off Electronics
                 </li>
               </ul>
             </div>
             <ul class="yui3-g Lifeservice">
-              <li class="yui3-u-1-4 life-item tab-item">
+              <li class="yui3-u-1-4 life-item tab-item" @click='search'>
                 <i class="list-item list-item-1"></i>
                 <span class="service-intro">Phone Bill</span>
               </li>
-              <li class="yui3-u-1-4 life-item tab-item">
+              <li class="yui3-u-1-4 life-item tab-item" @click='search'>
                 <i class="list-item list-item-2"></i>
                 <span class="service-intro">Flight Tickets</span>
               </li>
-              <li class="yui3-u-1-4 life-item tab-item">
+              <li class="yui3-u-1-4 life-item tab-item" @click='search'>
                 <i class="list-item list-item-3"></i>
                 <span class="service-intro">Movie Tickets</span>
               </li>
-              <li class="yui3-u-1-4 life-item tab-item">
+              <li class="yui3-u-1-4 life-item tab-item" @click='search'>
                 <i class="list-item list-item-4"></i>
                 <span class="service-intro">Games</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-5"></i>
                 <span class="service-intro">Lottery</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-6"></i>
                 <span class="service-intro">Gas Station</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-7"></i>
                 <span class="service-intro">Hotels</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-8"></i>
                 <span class="service-intro">Train Tickets</span>
               </li>
-              <li class="yui3-u-1-4 life-item  notab-item">
+              <li class="yui3-u-1-4 life-item  notab-item" @click='search'>
                 <i class="list-item list-item-9"></i>
                 <span class="service-intro">Crowdfunding</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-10"></i>
                 <span class="service-intro">Financial</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-11"></i>
                 <span class="service-intro">Gift Card</span>
               </li>
-              <li class="yui3-u-1-4 life-item notab-item">
+              <li class="yui3-u-1-4 life-item notab-item" @click='search'>
                 <i class="list-item list-item-12"></i>
                 <span class="service-intro">Installment</span>
               </li>
             </ul>
             <div class="life-item-content">
               <div class="life-detail">
-                <i class="close">Close</i>
+                <i class="close" @click='search'>Close</i>
                 <p>Phone Bill Recharge</p>
                 <form action="" class="sui-form form-horizontal">
-                  Number: <input type="text" id="inputphoneNumber" placeholder="Enter your number"/>
+                  Number: <input type="text" id="inputphoneNumber" placeholder="Enter your number" @click='search'/>
                 </form>
-                <button class="sui-btn btn-danger">Quick Recharge</button>
+                <button class="sui-btn btn-danger" @click='search'>Quick Recharge</button>
               </div>
               <div class="life-detail">
-                <i class="close">Close</i> Flight Tickets
+                <i class="close" @click='search'>Close</i> Flight Tickets
               </div>
               <div class="life-detail">
-                <i class="close">Close</i> Movie Tickets
+                <i class="close" @click='search'>Close</i> Movie Tickets
               </div>
               <div class="life-detail">
-                <i class="close">Close</i> Games
+                <i class="close" @click='search'>Close</i> Games
               </div>
             </div>
             <div class="ads">
-              <img src="img/ad1.png"/>
+              <img src="img/ad1.png" @click='search'/>
             </div>
           </div>
         </div>
@@ -726,21 +726,21 @@
       <ul class="yui3-g Recommend">
         <li class="yui3-u-1-6  clock">
           <div class="time">
-            <img src="img/clock.png"/>
-            <h3>Today's Recommendation</h3>
+            <img src="img/clock.png" @click='search'/>
+            <h3 @click='search'>Today's Recommendation</h3>
           </div>
         </li>
         <li class="yui3-u-5-24">
-          <a href="list.html" target="_blank"><img src="img/today01.png"/></a>
+          <a href="list.html" target="_blank" @click.prevent='search'><img src="img/today01.png"/></a>
         </li>
         <li class="yui3-u-5-24">
-          <img src="img/today02.png"/>
+          <img src="img/today02.png" @click='search'/>
         </li>
         <li class="yui3-u-5-24">
-          <img src="img/today03.png"/>
+          <img src="img/today03.png" @click='search'/>
         </li>
         <li class="yui3-u-5-24">
-          <img src="img/today04.png"/>
+          <img src="img/today04.png" @click='search'/>
         </li>
       </ul>
     </div>
@@ -750,23 +750,23 @@
   <div class="like">
     <div class="py-container">
       <div class="title">
-        <h3 class="fl">You May Like</h3>
+        <h3 class="fl" @click='search'>You May Like</h3>
         <b class="border"></b>
-        <a href="javascript:;" class="fr tip changeBnt" id="xxlChg"><i></i>Refresh</a>
+        <a href="javascript:;" class="fr tip changeBnt" id="xxlChg" @click='search'><i></i>Refresh</a>
       </div>
       <div class="bd">
         <ul class="clearfix yui3-g Favourate picLB" id="picLBxxl">
           <li class="yui3-u-1-6">
             <dl class="picDl huozhe">
               <dd>
-                <a href="" class="pic"><img src="img/like_02.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_02.png" alt=""/></a>
                 <div class="like-text">
                   <p>Sunshine Beauty Bag New Shoulder Bag Fashion Mother-Child Set</p>
                   <h3>$116.00</h3>
                 </div>
               </dd>
               <dd>
-                <a href="" class="pic"><img src="img/like_01.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_01.png" alt=""/></a>
                 <div class="like-text">
                   <p>Irdeto 30CM Non-stick Pan NWG8330E for Induction Cooker</p>
                   <h3>$116.00</h3>
@@ -777,14 +777,14 @@
           <li class="yui3-u-1-6">
             <dl class="picDl jilu">
               <dd>
-                <a href="" class="pic"><img src="img/like_03.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_03.png" alt=""/></a>
                 <div class="like-text">
                   <p>Irdeto 30CM Non-stick Pan NWG8330E for Induction Cooker</p>
                   <h3>$116.00</h3>
                 </div>
               </dd>
               <dd>
-                <a href="" class="pic"><img src="img/like_02.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_02.png" alt=""/></a>
                 <div class="like-text">
                   <p>Sunshine Beauty Bag New Shoulder Bag Fashion Mother-Child Set</p>
                   <h3>$116.00</h3>
@@ -795,7 +795,7 @@
           <li class="yui3-u-1-6">
             <dl class="picDl tuhua">
               <dd>
-                <a href="" class="pic"><img src="img/like_01.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_01.png" alt=""/></a>
                 <div class="like-text">
                   <p>Jabra</p>
                   <p>BOOSI Active</p>
@@ -803,7 +803,7 @@
                 </div>
               </dd>
               <dd>
-                <a href="" class="pic"><img nsrc="assets/img/like_02.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img nsrc="assets/img/like_02.png" alt=""/></a>
                 <div class="like-text">
                   <p>Samsung (G5500)</p>
                   <p>Dual SIM</p>
@@ -815,14 +815,14 @@
           <li class="yui3-u-1-6">
             <dl class="picDl huozhe">
               <dd>
-                <a href="" class="pic"><img src="img/like_02.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_02.png" alt=""/></a>
                 <div class="like-text">
                   <p>Sunshine Beauty Bag New Shoulder Bag Fashion Mother-Child Set</p>
                   <h3>$116.00</h3>
                 </div>
               </dd>
               <dd>
-                <a href="" class="pic"><img src="img/like_01.png" alt=""/></a>
+                <a href="" class="pic" @click.prevent='search'><img src="img/like_01.png" alt=""/></a>
                 <div class="like-text">
                   <p>Irdeto 30CM Non-stick Pan NWG8330E for Induction Cooker</p>
                   <h3>$116.00</h3>
@@ -833,7 +833,7 @@
           <li class="yui3-u-1-6">
             <dl class="picDl jilu">
               <dd>
-                <a href="http://sc.chinaz.com/" class="pic"><img src="img/like_03.png" alt=""/></a>
+                <a href="http://sc.chinaz.com/" class="pic" @click.prevent='search'><img src="img/like_03.png" alt=""/></a>
                 <div class="like-text">
                   <p>Jabra</p>
                   <p>BOOSI Active</p>
@@ -841,7 +841,7 @@
                 </div>
               </dd>
               <dd>
-                <a href="http://sc.chinaz.com/" class="pic"><img src="img/like_02.png" alt=""/></a>
+                <a href="http://sc.chinaz.com/" class="pic" @click.prevent='search'><img src="img/like_02.png" alt=""/></a>
                 <div class="like-text">
                   <p>Opple</p>
                   <p>JYLZ08 Panel Light</p>
@@ -853,7 +853,7 @@
           <li class="yui3-u-1-6">
             <dl class="picDl tuhua">
               <dd>
-                <a href="http://sc.chinaz.com/" class="pic"><img src="img/like_01.png" alt=""/></a>
+                <a href="http://sc.chinaz.com/" class="pic" @click.prevent='search'><img src="img/like_01.png" alt=""/></a>
                 <div class="like-text">
                   <p>Samsung (G5500)</p>
                   <p>Dual SIM</p>
@@ -861,7 +861,7 @@
                 </div>
               </dd>
               <dd>
-                <a href="http://sc.chinaz.com/" class="pic"><img nsrc="assets/img/like_02.png" alt=""/></a>
+                <a href="http://sc.chinaz.com/" class="pic" @click.prevent='search'><img nsrc="assets/img/like_02.png" alt=""/></a>
                 <div class="like-text">
                   <p>Korean Wonder Moisturizing Essence 400ml</p>
                   <h3>$896.00</h3>
@@ -878,29 +878,29 @@
   <div id="floor-1" class="floor">
     <div class="py-container">
       <div class="title floors">
-        <h3 class="fl">Home Appliances</h3>
+        <h3 class="fl" @click='search'>Home Appliances</h3>
         <div class="fr">
           <ul class="sui-nav nav-tabs">
             <li class="active">
-              <a href="#tab1" data-toggle="tab">Popular</a>
+              <a href="#tab1" data-toggle="tab" @click.prevent='search'>Popular</a>
             </li>
             <li>
-              <a href="#tab2" data-toggle="tab">Large Appliances</a>
+              <a href="#tab2" data-toggle="tab" @click.prevent='search'>Large Appliances</a>
             </li>
             <li>
-              <a href="#tab3" data-toggle="tab">Life Appliances</a>
+              <a href="#tab3" data-toggle="tab" @click.prevent='search'>Life Appliances</a>
             </li>
             <li>
-              <a href="#tab4" data-toggle="tab">Kitchen Appliances</a>
+              <a href="#tab4" data-toggle="tab" @click.prevent='search'>Kitchen Appliances</a>
             </li>
             <li>
-              <a href="#tab5" data-toggle="tab">Seasonal</a>
+              <a href="#tab5" data-toggle="tab" @click.prevent='search'>Seasonal</a>
             </li>
             <li>
-              <a href="#tab6" data-toggle="tab">Air/Water</a>
+              <a href="#tab6" data-toggle="tab" @click.prevent='search'>Air/Water</a>
             </li>
             <li>
-              <a href="#tab7" data-toggle="tab">Premium</a>
+              <a href="#tab7" data-toggle="tab" @click.prevent='search'>Premium</a>
             </li>
           </ul>
         </div>
@@ -910,14 +910,14 @@
           <div class="yui3-g Floor-1">
             <div class="yui3-u Left blockgary">
               <ul class="jd-list">
-                <li>Energy Saving</li>
-                <li>4K TV</li>
-                <li>Air Purifier</li>
-                <li>IH Rice Cooker</li>
-                <li>Washing Machine</li>
-                <li>Water Heater</li>
+                <li @click='search'>Energy Saving</li>
+                <li @click='search'>4K TV</li>
+                <li @click='search'>Air Purifier</li>
+                <li @click='search'>IH Rice Cooker</li>
+                <li @click='search'>Washing Machine</li>
+                <li @click='search'>Water Heater</li>
               </ul>
-              <img src="img/floor-1-1.png"/>
+              <img src="img/floor-1-1.png" @click='search'/>
             </div>
             <div class="yui3-u row-330 floorBanner">
               <div id="floorCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -928,59 +928,59 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="active item">
-                    <img src="img/floor-1-b01.png">
+                    <img src="img/floor-1-b01.png" @click='search'>
                   </div>
                   <div class="item">
-                    <img src="img/floor-1-b02.png">
+                    <img src="img/floor-1-b02.png" @click='search'>
                   </div>
                   <div class="item">
-                    <img src="img/floor-1-b03.png">
+                    <img src="img/floor-1-b03.png" @click='search'>
                   </div>
                 </div>
-                <a href="#floorCarousel" data-slide="prev" class="carousel-control left">‹</a>
-                <a href="#floorCarousel" data-slide="next" class="carousel-control right">›</a>
+                <a href="#floorCarousel" data-slide="prev" class="carousel-control left" @click='search'>‹</a>
+                <a href="#floorCarousel" data-slide="next" class="carousel-control right" @click='search'>›</a>
               </div>
             </div>
             <div class="yui3-u row-220 split">
               <span class="floor-x-line"></span>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-2.png"/>
+                <img src="img/floor-1-2.png" @click='search'/>
               </div>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-3.png"/>
+                <img src="img/floor-1-3.png" @click='search'/>
               </div>
             </div>
             <div class="yui3-u row-218 split">
-              <img src="img/floor-1-4.png"/>
+              <img src="img/floor-1-4.png" @click='search'/>
             </div>
             <div class="yui3-u row-220 split">
               <span class="floor-x-line"></span>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-5.png"/>
+                <img src="img/floor-1-5.png" @click='search'/>
               </div>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-6.png"/>
+                <img src="img/floor-1-6.png" @click='search'/>
               </div>
             </div>
           </div>
         </div>
         <div id="tab2" class="tab-pane">
-          <p>Second</p>
+          <p @click='search'>Second</p>
         </div>
         <div id="tab3" class="tab-pane">
-          <p>Third</p>
+          <p @click='search'>Third</p>
         </div>
         <div id="tab4" class="tab-pane">
-          <p>Fourth</p>
+          <p @click='search'>Fourth</p>
         </div>
         <div id="tab5" class="tab-pane">
-          <p>Fifth</p>
+          <p @click='search'>Fifth</p>
         </div>
         <div id="tab6" class="tab-pane">
-          <p>Sixth</p>
+          <p @click='search'>Sixth</p>
         </div>
         <div id="tab7" class="tab-pane">
-          <p>Seventh</p>
+          <p @click='search'>Seventh</p>
         </div>
       </div>
     </div>
@@ -988,29 +988,29 @@
   <div id="floor-2" class="floor">
     <div class="py-container">
       <div class="title floors">
-        <h3 class="fl">Mobile Communication</h3>
+        <h3 class="fl" @click='search'>Mobile Communication</h3>
         <div class="fr">
           <ul class="sui-nav nav-tabs">
             <li class="active">
-              <a href="#tab8" data-toggle="tab">Popular</a>
+              <a href="#tab8" data-toggle="tab" @click.prevent='search'>Popular</a>
             </li>
             <li>
-              <a href="#tab9" data-toggle="tab">Quality Selection</a>
+              <a href="#tab9" data-toggle="tab" @click.prevent='search'>Quality Selection</a>
             </li>
             <li>
-              <a href="#tab10" data-toggle="tab">New Releases</a>
+              <a href="#tab10" data-toggle="tab" @click.prevent='search'>New Releases</a>
             </li>
             <li>
-              <a href="#tab11" data-toggle="tab">High Value</a>
+              <a href="#tab11" data-toggle="tab" @click.prevent='search'>High Value</a>
             </li>
             <li>
-              <a href="#tab12" data-toggle="tab">Contract Phones</a>
+              <a href="#tab12" data-toggle="tab" @click.prevent='search'>Contract Phones</a>
             </li>
             <li>
-              <a href="#tab13" data-toggle="tab">Phone Cards</a>
+              <a href="#tab13" data-toggle="tab" @click.prevent='search'>Phone Cards</a>
             </li>
             <li>
-              <a href="#tab14" data-toggle="tab">Accessories</a>
+              <a href="#tab14" data-toggle="tab" @click.prevent='search'>Accessories</a>
             </li>
           </ul>
         </div>
@@ -1020,14 +1020,14 @@
           <div class="yui3-g Floor-1">
             <div class="yui3-u Left blockgary">
               <ul class="jd-list">
-                <li>Energy Saving</li>
-                <li>4K TV</li>
-                <li>Air Purifier</li>
-                <li>IH Rice Cooker</li>
-                <li>Washing Machine</li>
-                <li>Water Heater</li>
+                <li @click='search'>Energy Saving</li>
+                <li @click='search'>4K TV</li>
+                <li @click='search'>Air Purifier</li>
+                <li @click='search'>IH Rice Cooker</li>
+                <li @click='search'>Washing Machine</li>
+                <li @click='search'>Water Heater</li>
               </ul>
-              <img src="img/floor-1-1.png"/>
+              <img src="img/floor-1-1.png" @click='search'/>
             </div>
             <div class="yui3-u row-330 floorBanner">
               <div id="floorCarousell" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
@@ -1038,62 +1038,62 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="active item">
-                    <img src="img/floor-1-b01.png">
+                    <img src="img/floor-1-b01.png" @click='search'>
                   </div>
                   <div class="item">
-                    <img src="img/floor-1-b02.png">
+                    <img src="img/floor-1-b02.png" @click='search'>
                   </div>
                   <div class="item">
-                    <img src="img/floor-1-b03.png">
+                    <img src="img/floor-1-b03.png" @click='search'>
                   </div>
                 </div>
-                <a href="#floorCarousell" data-slide="prev" class="carousel-control left">‹</a>
-                <a href="#floorCarousell" data-slide="next" class="carousel-control right">›</a>
+                <a href="#floorCarousell" data-slide="prev" class="carousel-control left" @click='search'>‹</a>
+                <a href="#floorCarousell" data-slide="next" class="carousel-control right" @click='search'>›</a>
               </div>
             </div>
             <div class="yui3-u row-220 split">
               <span class="floor-x-line"></span>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-2.png"/>
+                <img src="img/floor-1-2.png" @click='search'/>
               </div>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-3.png"/>
+                <img src="img/floor-1-3.png" @click='search'/>
               </div>
             </div>
             <div class="yui3-u row-218 split">
-              <img src="img/floor-1-4.png"/>
+              <img src="img/floor-1-4.png" @click='search'/>
             </div>
             <div class="yui3-u row-220 split">
               <span class="floor-x-line"></span>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-5.png"/>
+                <img src="img/floor-1-5.png" @click='search'/>
               </div>
               <div class="floor-conver-pit">
-                <img src="img/floor-1-6.png"/>
+                <img src="img/floor-1-6.png" @click='search'/>
               </div>
             </div>
           </div>
         </div>
         <div id="tab15" class="tab-pane">
-          <p>Second</p>
+          <p @click='search'>Second</p>
         </div>
         <div id="tab9" class="tab-pane">
-          <p>Third</p>
+          <p @click='search'>Third</p>
         </div>
         <div id="tab10" class="tab-pane">
-          <p>Fourth</p>
+          <p @click='search'>Fourth</p>
         </div>
         <div id="tab11" class="tab-pane">
-          <p>Fifth</p>
+          <p @click='search'>Fifth</p>
         </div>
         <div id="tab12" class="tab-pane">
-          <p>Sixth</p>
+          <p @click='search'>Sixth</p>
         </div>
         <div id="tab13" class="tab-pane">
-          <p>Seventh</p>
+          <p @click='search'>Seventh</p>
         </div>
         <div id="tab14" class="tab-pane">
-          <p>Eighth</p>
+          <p @click='search'>Eighth</p>
         </div>
       </div>
     </div>
@@ -1103,18 +1103,18 @@
   <div class="brand">
     <div class="py-container">
       <ul class="Brand-list blockgary">
-        <li class="Brand-item">
+        <li class="Brand-item" @click='search'>
           <img src="img/brand_21.png"/>
         </li>
-        <li class="Brand-item"><img src="img/brand_03.png"/></li>
-        <li class="Brand-item"><img src="img/brand_05.png"/></li>
-        <li class="Brand-item"><img src="img/brand_07.png"/></li>
-        <li class="Brand-item"><img src="img/brand_09.png"/></li>
-        <li class="Brand-item"><img src="img/brand_11.png"/></li>
-        <li class="Brand-item"><img src="img/brand_13.png"/></li>
-        <li class="Brand-item"><img src="img/brand_15.png"/></li>
-        <li class="Brand-item"><img src="img/brand_17.png"/></li>
-        <li class="Brand-item"><img src="img/brand_19.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_03.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_05.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_07.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_09.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_11.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_13.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_15.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_17.png"/></li>
+        <li class="Brand-item" @click='search'><img src="img/brand_19.png"/></li>
       </ul>
     </div>
   </div>
@@ -1127,24 +1127,24 @@
   <div id="floor-index" class="floor-index">
     <ul>
       <li>
-        <a class="num" href="javascript:;" style="display: none;">1F</a>
-        <a class="word" href="javascript;;" style="display: block;">Home Appliances</a>
+        <a class="num" href="javascript:;" style="display: none;" @click='search'>1F</a>
+        <a class="word" href="javascript;;" style="display: block;" @click='search'>Home Appliances</a>
       </li>
       <li>
-        <a class="num" href="javascript:;" style="display: none;">2F</a>
-        <a class="word" href="javascript;;" style="display: block;">Mobile Phones</a>
+        <a class="num" href="javascript:;" style="display: none;" @click='search'>2F</a>
+        <a class="word" href="javascript;;" style="display: block;" @click='search'>Mobile Phones</a>
       </li>
       <li>
-        <a class="num" href="javascript:;" style="display: none;">3F</a>
-        <a class="word" href="javascript;;" style="display: block;">Computers</a>
+        <a class="num" href="javascript:;" style="display: none;" @click='search'>3F</a>
+        <a class="word" href="javascript;;" style="display: block;" @click='search'>Computers</a>
       </li>
       <li>
-        <a class="num" href="javascript:;" style="display: none;">4F</a>
-        <a class="word" href="javascript;;" style="display: block;">Home & Furniture</a>
+        <a class="num" href="javascript:;" style="display: none;" @click='search'>4F</a>
+        <a class="word" href="javascript;;" style="display: block;" @click='search'>Home & Furniture</a>
       </li>
       <li>
-        <a class="num" href="javascript:;" style="display: none;">5F</a>
-        <a class="word" href="javascript;;" style="display: block;">Sports</a>
+        <a class="num" href="javascript:;" style="display: none;" @click='search'>5F</a>
+        <a class="word" href="javascript;;" style="display: block;" @click='search'>Sports</a>
       </li>
     </ul>
   </div>
@@ -1184,11 +1184,11 @@
       util.store.set("return-url", location.href);
       if(this.util.isLogin()){
         axios.get("/carts")
-          .then(resp => this.carts = resp)
-          .catch(err => {
-            console.log(err);
-            this.carts = []
-          })
+                .then(resp => this.carts = resp)
+                .catch(err => {
+                  console.log(err);
+                  this.carts = []
+                })
       }
     },
     methods: {
@@ -1216,16 +1216,16 @@
       },
       getSuggestion() {
         axios.get("/search/suggestion?key=" + this.key)
-          .then(resp => {
-            // Save data
-            this.options = resp.data;
-            // Show suggestion box
-            this.showOption = resp.data && resp.data.length > 0;
-          })
-          .catch(e => {
-            console.log(e);
-            this.options = []
-          })
+                .then(resp => {
+                  // Save data
+                  this.options = resp.data;
+                  // Show suggestion box
+                  this.showOption = resp.data && resp.data.length > 0;
+                })
+                .catch(e => {
+                  console.log(e);
+                  this.options = []
+                })
       },
       search() {
         if (this.key !== "null") {
