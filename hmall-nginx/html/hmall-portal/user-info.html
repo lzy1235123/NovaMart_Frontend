@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Information</title>
+    <link rel="stylesheet" type="text/css" href="./css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="./css/user-info.css" />
+</head>
+<body>
+<div id="userInfoApp">
+    <!--head-->
+    <top></top>
+    <div class="py-container">
+        <div class="user-info">
+            <h2>Personal Information</h2>
+            <div class="info-content">
+                <div class="info-item">
+                    <label>Username:</label>
+                    <span>{{user.username}}</span>
+                </div>
+                <div class="info-item">
+                    <label>Phone:</label>
+                    <span>{{user.phone}}</span>
+                </div>
+                <div class="info-item">
+                    <label>Account Balance:</label>
+                    <span>¥{{user.balance}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/vue.js"></script>
+<script src="./js/axios.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/top.js"></script>
+<script>
+    let userInfoApp = new Vue({
+        el: "#userInfoApp",
+        data() {
+            return {
+                util,
+                user: null
+            }
+        },
+        created() {
+            this.getUserInfo();
+        },
+        methods: {
+            getUserInfo() {
+                // 获取完整的用户信息对象
+                const userInfo = util.store.get("user-info");
+                console.log("Retrieved user info from store:", userInfo);
+                // 从中提取用户ID
+                const userId = userInfo.userId;
+                console.log("Fetching user info for userId:", userId);
+                axios.get(`/users/${userId}`)
+                    .then(resp => {
+                        console.log("User info response:", resp);
+                        this.user = resp;
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            }
+        }
+    });
+</script>
+</body>
+</html>

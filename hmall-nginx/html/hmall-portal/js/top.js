@@ -21,7 +21,7 @@ const topApp = {
           <li class="f-item space"></li>
           <li class="f-item"><a href="/my-order.html">My Order</a></li>
           <li class="f-item space"></li>
-          <li class="f-item">Hmall Member</li>
+          <li class="f-item"><a href="user-info.html">Hmall Personal Information</a></li>
           <li class="f-item space"></li>
           <li class="f-item">Business Procurement</li>
           <li class="f-item space"></li>
