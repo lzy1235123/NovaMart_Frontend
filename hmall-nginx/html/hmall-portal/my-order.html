@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" href="./css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="./css/pages-getOrderInfo.css" />
+    <link rel="stylesheet" type="text/css" href="./css/orderInfo.css" />
+    <style>
+        .order-section {
+            margin: 20px 0;
+        }
+        .order-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .order-details {
+            margin: 10px 0;
+        }
+        .order-actions {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .order-actions button, .order-actions a {
+            margin-left: 10px;
+        }
+        .section-title {
+            border-bottom: 2px solid #c81623;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title h2 {
+            color: #c81623;
+            margin: 0;
+        }
+        .raw-data {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .raw-data pre {
+            background: white;
+            padding: 10px;
+            border-radius: 3px;
+            overflow: auto;
+            max-height: 300px;
+            margin: 10px 0;
+        }
+        .no-orders {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        .loading {
+            color: #666;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="myOrderApp">
+    <!--head-->
+    <top></top>
+    <div class="cart py-container">
+        <div class="logoArea">
+            <a href="/">
+                <div class="logo">
+                    <img src="./img/logo.png" alt="logo"/>
+                </div>
+            </a>
+            <span>我的订单</span>
+        </div>
+
+        <!--Main Content-->
+        <div class="checkout py-container">
+            <div class="checkout-tit">
+                <h4 class="tit-txt">我的订单列表</h4>
+            </div>
+
+            <!-- 未付款订单部分 -->
+            <div class="order-section">
+                <div class="section-title">
+                    <h2>未付款订单</h2>
+                </div>
+                <div id="unpaid-orders">
+                    <div v-for="order in unpaidOrders" :key="order.id" class="order-item">
+                        <div class="order-header">
+                            <span>订单号: {{order.id}}</span>
+                            <span>状态: 未付款</span>
+                        </div>
+                        <div class="order-details">
+                            <p>订单总金额: ¥{{order.totalFee / 100|| 'N/A'}}</p>
+                            <p>创建时间: {{formatDate(order.createTime)}}</p>
+                            <!-- 显示订单详情 -->
+                            <div v-if="orderDetails[order.id] && !orderDetails[order.id].error">
+                                <div v-if="Array.isArray(orderDetails[order.id])">
+                                    <div v-for="(detail, index) in orderDetails[order.id]" :key="index" class="order-product">
+                                        <!-- 新增图片展示 -->
+                                        <img v-if="detail.image" :src="detail.image" alt="商品图片" style="width: 80px; height: 80px; margin-right: 10px;">
+                                        <p>{{detail.name || detail.itemName}} x {{detail.num || detail.quantity}} - ¥{{detail.price / 100 || detail.itemPrice / 100}}</p>
+                                    </div>
+                                </div>
+                                <div v-else>
+                                    <!-- 如果是对象而不是数组 -->
+                                    <img v-if="orderDetails[order.id].image" :src="orderDetails[order.id].image" alt="商品图片" style="width: 80px; height: 80px; margin-right: 10px;">
+                                    <p>{{orderDetails[order.id].name}} x {{orderDetails[order.id].num}} - ¥{{orderDetails[order.id].price / 100}}</p>
+                                </div>
+                            </div>
+                            <div v-else-if="orderDetails[order.id] && orderDetails[order.id].error" class="loading">
+                                {{orderDetails[order.id].error}}
+                            </div>
+                            <div v-else class="loading">加载订单详情中...</div>
+
+
+                        </div>
+                        <div class="order-actions">
+                            <a class="sui-btn btn-danger" :href="'pay.html?id=' + order.id">付款</a>
+                            <button class="sui-btn btn-warning" @click="cancelOrder(order.id)">取消</button>
+                        </div>
+                    </div>
+                    <div v-if="unpaidOrders.length === 0" class="no-orders">
+                        <p>暂无未付款订单</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 已付款订单部分 -->
+            <div class="order-section">
+                <div class="section-title">
+                    <h2>已付款订单</h2>
+                </div>
+                <div id="paid-orders">
+                    <div v-for="order in paidOrders" :key="order.id" class="order-item">
+                        <div class="order-header">
+                            <span>订单号: {{order.id}}</span>
+                            <span>状态: 已付款</span>
+                        </div>
+                        <div class="order-details">
+                            <p>订单总金额: ¥{{order.totalFee /100|| 'N/A'}}</p>
+                            <p>创建时间: {{formatDate(order.createTime)}}</p>
+                            <!-- 显示订单详情 -->
+                            <div v-if="orderDetails[order.id] && !orderDetails[order.id].error">
+                                <div v-if="Array.isArray(orderDetails[order.id])">
+                                    <div v-for="(detail, index) in orderDetails[order.id]" :key="index" class="order-product">
+                                        <!-- 新增图片展示 -->
+                                        <img v-if="detail.image" :src="detail.image" alt="商品图片" style="width: 80px; height: 80px; margin-right: 10px;">
+                                        <p>{{detail.name || detail.itemName}} x {{detail.num || detail.quantity}} - ¥{{detail.price / 100 || detail.itemPrice / 100}}</p>
+                                    </div>
+                                </div>
+                                <div v-else>
+                                    <!-- 如果是对象而不是数组 -->
+                                    <img v-if="orderDetails[order.id].img" :src="orderDetails[order.id].img" alt="商品图片" style="width: 80px; height: 80px; margin-right: 10px;">
+                                    <p>{{orderDetails[order.id].name}} x {{orderDetails[order.id].num}} - ¥{{orderDetails[order.id].price / 100}}</p>
+                                </div>
+                            </div>
+                            <div v-else-if="orderDetails[order.id] && orderDetails[order.id].error" class="loading">
+                                {{orderDetails[order.id].error}}
+                            </div>
+                            <div v-else class="loading">加载订单详情中...</div>
+
+                        </div>
+                    </div>
+                    <div v-if="paidOrders.length === 0" class="no-orders">
+                        <p>暂无已付款订单</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/vue.js"></script>
+<script src="./js/axios.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/top.js"></script>
+<script>
+    let myOrderApp = new Vue({
+        el: "#myOrderApp",
+        data() {
+            return {
+                util,
+                allOrdersData: '加载中...', // 添加用于显示原始数据的字段
+                unpaidOrders: [], // 未付款订单 (status = 1)
+                paidOrders: [],   // 已付款订单 (status = 2)
+                orderDetails: {}, // 存储订单详情 - 改为对象，使用订单ID作为键
+                user: null,
+            }
+        },
+        created() {
+            // 检查用户登录状态
+            this.user = util.store.get("user-info");
+            if(!this.user) {
+                location.href = "login.html";
+                return;
+            }
+
+            // 加载订单数据
+            this.loadOrders();
+        },
+        methods: {
+            // 加载所有订单并分类
+            loadOrders() {
+                axios.get("/orders/my")
+                    .then(resp => {
+                        console.log("订单响应完整数据:", resp);  // 调试用
+
+                        // 检查响应结构，可能数据直接在resp中而不是resp.data中
+                        let ordersData = null;
+                        if (resp && resp.data && Array.isArray(resp.data)) {
+                            ordersData = resp.data;
+                        } else if (resp && Array.isArray(resp)) {
+                            // 如果数据直接在resp中
+                            ordersData = resp;
+                        } else if (resp && resp.data) {
+                            // 其他可能的数据结构
+                            ordersData = resp.data;
+                        }
+
+                        if (ordersData && Array.isArray(ordersData)) {
+                            // 保存原始数据到页面显示
+                            this.allOrdersData = JSON.stringify(ordersData, null, 2);
+
+                            // 分类订单
+                            this.unpaidOrders = ordersData.filter(order => order.status === 1);
+                            this.paidOrders = ordersData.filter(order => order.status === 2);
+
+                            console.log("未付款订单数量:", this.unpaidOrders.length);
+                            console.log("已付款订单数量:", this.paidOrders.length);
+
+                            // 获取每个订单的详细信息
+                            this.loadOrderDetails();
+                        } else {
+                            console.error("订单数据格式不正确:", resp);
+                            this.allOrdersData = '订单数据格式不正确: ' + JSON.stringify(resp, null, 2);
+                        }
+                    })
+                    .catch(err => {
+                        this.allOrdersData = '加载失败: ' + JSON.stringify(err, null, 2);
+                        console.error("获取订单失败:", err);
+                        alert("获取订单信息失败，请稍后重试");
+                    });
+            },
+
+            // 加载订单详情
+            loadOrderDetails() {
+                // 合并所有订单ID
+                const allOrderIds = [
+                    ...this.unpaidOrders.map(order => order.id),
+                    ...this.paidOrders.map(order => order.id)
+                ];
+
+                // 去重并获取每个订单的详细信息
+                [...new Set(allOrderIds)].forEach(orderId => {
+                    this.fetchOrderDetail(orderId);
+                });
+            },
+
+            fetchOrderDetail(orderId) {
+                console.log(`正在获取订单${orderId}的详情`);
+
+                axios.get(`/orders/myOrderDetail/${orderId}`)
+                    .then(resp => {
+                        console.log(`订单${orderId}详情获取成功:`, resp);
+
+                        if(resp) {
+                            // 检查数据结构，确保是数组格式
+                            let details = resp;
+                            if (!Array.isArray(details)) {
+                                // 如果不是数组，尝试包装成数组或提取正确字段
+                                if (details.orderDetails && Array.isArray(details.orderDetails)) {
+                                    details = details.orderDetails;
+                                } else {
+                                    details = [details];
+                                }
+                            }
+
+                            // 将订单详情存储到 `orderDetails` 对象中
+                            this.$set(this.orderDetails, orderId, details);
+                            console.log(`订单${orderId}详情存储完成:`, this.orderDetails[orderId]);
+                        }
+                    })
+                    .catch(err => {
+                        console.error(`获取订单${orderId}详情失败:`, err);
+                        this.$set(this.orderDetails, orderId, []);
+                    });
+            },
+
+            // 取消订单
+            cancelOrder(orderId) {
+                if (confirm('确定要取消这个订单吗？')) {
+                    axios.delete(`/orders/${orderId}`)
+                        .then(response => {
+                            alert('订单已取消');
+                            // 重新加载订单列表
+                            this.loadOrders();
+                        })
+                        .catch(error => {
+                            console.error('取消订单错误:', error);
+                            alert('取消订单失败，请稍后重试');
+                        });
+                }
+            },
+
+            // 格式化时间
+            formatDate(timestamp) {
+                if (!timestamp) return 'N/A';
+                // 处理可能的时间戳格式问题
+                if (typeof timestamp === 'string') {
+                    // 尝试将字符串转换为时间戳
+                    timestamp = new Date(timestamp).getTime();
+                }
+                const date = new Date(timestamp);
+                return date.toLocaleString('zh-CN');
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@ const topApp = {
           <li class="f-item space"></li>
           <li class="f-item"><a href="/cart.html">My Cart</a></li>
           <li class="f-item space"></li>
-          <li class="f-item">My Hmall</li>
+          <li class="f-item"><a href="/my-order.html">My Order</a></li>
           <li class="f-item space"></li>
           <li class="f-item">Hmall Member</li>
           <li class="f-item space"></li>
