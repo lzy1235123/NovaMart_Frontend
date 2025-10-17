@@ -141,28 +141,27 @@
         <label>Mobile</label>
         <input v-model="newAddress.mobile" type="text" placeholder="Enter mobile number">
       </div>
-        <div data-toggle="distpicker" style="margin-bottom:5px;">
-          <label>Province:</label>
-          <select id="province" class="form-control"></select>
-
-          <label>City:</label>
-          <select id="city" class="form-control"></select>
-
-          <label>Town:</label>
-          <select id="town" class="form-control"></select>
-        </div>
-<!--      <div class="form-group">-->
-<!--        <label>Province</label>-->
-<!--        <input v-model="newAddress.province" type="text" placeholder="Enter province">-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label>City</label>-->
-<!--        <input v-model="newAddress.city" type="text" placeholder="Enter city">-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <label>Town</label>-->
-<!--        <input v-model="newAddress.town" type="text" placeholder="Enter town">-->
-<!--      </div>-->
+      <div class="form-group">
+        <label>Province</label>
+        <select v-model="newAddress.province" @change="onProvinceChange" class="region-select">
+          <option value="">-- Select Province --</option>
+          <option v-for="province in provinces" :key="province" :value="province">{{province}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <select v-model="newAddress.city" @change="onCityChange" class="region-select" :disabled="!newAddress.province">
+          <option value="">-- Select City --</option>
+          <option v-for="city in cities" :key="city" :value="city">{{city}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Town</label>
+        <select v-model="newAddress.town" class="region-select" :disabled="!newAddress.city">
+          <option value="">-- Select Town --</option>
+          <option v-for="town in towns" :key="town" :value="town">{{town}}</option>
+        </select>
+      </div>
       <div class="form-group">
         <label>Street</label>
         <input v-model="newAddress.street" type="text" placeholder="Enter street">
@@ -185,13 +184,12 @@
   </div>
 
 </div>
-<script src="./js/jquery-1.9.1.min.js"></script>
-<script src="./js/distpicker.data.js"></script>
-<script src="./js/distpicker.js"></script>
 <script src="./js/vue.js"></script>
 <script src="./js/axios.min.js"></script>
 <script src="js/common.js"></script>
 <script src="js/top.js"></script>
+<!-- 引入地区数据 -->
+<script src="js/region-data.js"></script>
 <script>
   let orderApp = new Vue({
     el: "#orderApp",
@@ -218,6 +216,11 @@
           addressId: 61, // Shipping address id
         },
         user: null,
+        // 使用完整的地区数据
+        regionData: regionData,
+        provinces: [],
+        cities: [],
+        towns: []
       }
     },
     created() {
@@ -229,22 +232,51 @@
       // Query products
       this.getItem();
       this.getAddress();
+      this.initProvinces();
     },
     methods: {
+      // 初始化省份列表
+      initProvinces() {
+        this.provinces = Object.keys(this.regionData);
+      },
+      // 省份改变时更新城市列表
+      onProvinceChange() {
+        if (this.newAddress.province && this.regionData[this.newAddress.province]) {
+          const provinceData = this.regionData[this.newAddress.province];
+          this.cities = Object.keys(provinceData);
+          this.newAddress.city = '';
+          this.newAddress.town = '';
+          this.towns = [];
+        } else {
+          this.cities = [];
+          this.newAddress.city = '';
+          this.newAddress.town = '';
+          this.towns = [];
+        }
+      },
+
+      // 城市改变时更新区县列表
+      onCityChange() {
+        if (this.newAddress.province && this.newAddress.city &&
+                this.regionData[this.newAddress.province] &&
+                this.regionData[this.newAddress.province][this.newAddress.city]) {
+
+          const provinceData = this.regionData[this.newAddress.province];
+          this.towns = provinceData[this.newAddress.city];
+          this.newAddress.town = '';
+        } else {
+          this.towns = [];
+          this.newAddress.town = '';
+        }
+      },
       showAddAddressForm() {
         this.showAddForm = true;
-        this.$nextTick(() => {
-          $('[data-toggle="distpicker"]').distpicker({
-            province: '--- Select Province ---',
-            city: '--- Select City ---',
-            district: '--- Select Town ---',
-            autoSelect: false  // 关键：禁用自动选择
-          });
-          // 设置初始值为空
-          $('#province').val('');
-          $('#city').val('');
-          $('#town').val('');
-        });
+        // 重置地区选择
+        this.newAddress.province = '';
+        this.newAddress.city = '';
+        this.newAddress.town = '';
+        this.cities = [];
+        this.towns = [];
       },
       cancelAdd() {
         this.showAddForm = false;
@@ -263,11 +295,6 @@
         };
       },
       saveAddress() {
-        // 从下拉框中取出省市区
-        this.newAddress.province = $('#province').val();
-        this.newAddress.city = $('#city').val();
-        this.newAddress.town = $('#town').val();
-
         // 1. 前端非空校验
         if (!this.newAddress.contact || !this.newAddress.mobile || !this.newAddress.province ||
                 !this.newAddress.city || !this.newAddress.town || !this.newAddress.street) {
@@ -477,12 +504,11 @@
     from {opacity: 0; transform: translateY(-20px);}
     to {opacity: 1; transform: translateY(0);}
   }
-  .modal-content select {
+  .form-group select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    margin-bottom: 15px;
     font-size: 14px;
     transition: border-color 0.2s;
   }

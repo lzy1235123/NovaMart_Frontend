@@ -1,8 +1,84 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>User Information</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="./css/webbase.css" />-->
+<!--    <link rel="stylesheet" type="text/css" href="./css/user-info.css" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="userInfoApp">-->
+<!--    &lt;!&ndash;head&ndash;&gt;-->
+<!--    <top></top>-->
+<!--    <div class="py-container">-->
+<!--        <div class="user-info">-->
+<!--            <a href="/">-->
+<!--                <div class="logo">-->
+<!--                    <img src="./img/logo.png" alt="1" />-->
+<!--                </div>-->
+<!--            </a>-->
+<!--            <h2>Personal Information</h2>-->
+<!--            <div class="info-content">-->
+<!--                <div class="info-item">-->
+<!--                    <label>Username:</label>-->
+<!--                    <span>{{user.username}}</span>-->
+<!--                </div>-->
+<!--                <div class="info-item">-->
+<!--                    <label>Phone:</label>-->
+<!--                    <span>{{user.phone}}</span>-->
+<!--                </div>-->
+<!--                <div class="info-item">-->
+<!--                    <label>Account Balance:</label>-->
+<!--                    <span>¥{{user.balance}}</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<script src="./js/vue.js"></script>-->
+<!--<script src="./js/axios.min.js"></script>-->
+<!--<script src="js/common.js"></script>-->
+<!--<script src="js/top.js"></script>-->
+<!--<script>-->
+<!--    let userInfoApp = new Vue({-->
+<!--        el: "#userInfoApp",-->
+<!--        data() {-->
+<!--            return {-->
+<!--                util,-->
+<!--                user: null-->
+<!--            }-->
+<!--        },-->
+<!--        created() {-->
+<!--            this.getUserInfo();-->
+<!--        },-->
+<!--        methods: {-->
+<!--            getUserInfo() {-->
+<!--                // 获取完整的用户信息对象-->
+<!--                const userInfo = util.store.get("user-info");-->
+<!--                console.log("Retrieved user info from store:", userInfo);-->
+<!--                // 从中提取用户ID-->
+<!--                const userId = userInfo.userId;-->
+<!--                console.log("Fetching user info for userId:", userId);-->
+<!--                axios.get(`/users/${userId}`)-->
+<!--                    .then(resp => {-->
+<!--                        console.log("User info response:", resp);-->
+<!--                        this.user = resp;-->
+<!--                    })-->
+<!--                    .catch(err => {-->
+<!--                        console.log(err);-->
+<!--                    });-->
+<!--            }-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>User Information</title>
+    <title>Personal Center - Hmall</title>
     <link rel="stylesheet" type="text/css" href="./css/webbase.css" />
     <link rel="stylesheet" type="text/css" href="./css/user-info.css" />
 </head>
@@ -10,26 +86,131 @@
 <div id="userInfoApp">
     <!--head-->
     <top></top>
-    <div class="py-container">
-        <div class="user-info">
-            <h2>Personal Information</h2>
-            <div class="info-content">
-                <div class="info-item">
-                    <label>Username:</label>
-                    <span>{{user.username}}</span>
+
+    <div class="personal-container">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <div class="header-content">
+                <h1>Personal Center</h1>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- 用户信息卡片 -->
+            <div class="user-card">
+                <div class="user-basic">
+                    <div class="avatar-section">
+                        <div class="avatar">
+                            <img src="./img/avatar.png" alt="用户头像">
+                        </div>
+                        <div class="user-details">
+                            <h2 class="username">{{user.username}}</h2>
+                            <p class="welcome">Welcome to Hmall!</p>
+                        </div>
+                    </div>
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Balance</span>
+                            <span class="stat-value">¥{{util.formatPrice(user.balance)}}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Point</span>
+                            <span class="stat-value">{{user.points || 0}} </span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Phone Number</span>
+                            <span class="stat-value">{{user.phone}}</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <label>Phone:</label>
-                    <span>{{user.phone}}</span>
+            </div>
+
+            <!-- 快捷操作 -->
+            <div class="quick-actions">
+                <h3 class="section-title">Quick Actions</h3>
+                <div class="action-grid">
+                    <a href="/my-order.html" class="action-item">
+                        <div class="action-icon order-icon">📦</div>
+                        <span class="action-text">Orders</span>
+                    </a>
+                    <a href="/cart.html" class="action-item">
+                        <div class="action-icon cart-icon">🛒</div>
+                        <span class="action-text">Cart</span>
+                    </a>
+                    <a href="/address-manage.html" class="action-item">
+                        <div class="action-icon address-icon">📍</div>
+                        <span class="action-text">Address</span>
+                    </a>
                 </div>
-                <div class="info-item">
-                    <label>Account Balance:</label>
-                    <span>¥{{user.balance}}</span>
+            </div>
+
+
+
+            <!-- 订单状态概览 -->
+            <div class="order-overview">
+                <h3 class="section-title">Order Status</h3>
+                <div class="status-cards">
+                    <div class="status-card pending">
+                        <div class="status-info">
+                            <span class="status-count">{{orderStats.pending || 0}}</span>
+                            <span class="status-label">pending</span>
+                        </div>
+                        <div class="status-icon">⏰</div>
+                    </div>
+                    <div class="status-card processing">
+                        <div class="status-info">
+                            <span class="status-count">{{orderStats.paid || 0}}</span>
+                            <span class="status-label">paid</span>
+                        </div>
+                        <div class="status-icon">💰</div>
+                    </div>
+                    <div class="status-card completed">
+                        <div class="status-info">
+                            <span class="status-count">{{orderStats.completed || 0}}</span>
+                            <span class="status-label">completed</span>
+                        </div>
+                        <div class="status-icon">✅</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最近订单 -->
+            <div class="recent-orders">
+                <div class="section-header">
+                    <h3 class="section-title">My Orders</h3>
+                    <a href="/my-order.html" class="view-all">View All ></a>
+                </div>
+                <div class="orders-list">
+                    <div class="order-item" v-for="order in recentOrders" :key="order.id">
+                        <div class="order-main">
+                            <div class="order-number">order number：{{order.id}}</div>
+                            <div class="order-date">{{formatDate(order.createTime)}}</div>
+                            <div class="order-amount">¥{{util.formatPrice(order.totalFee)}}</div>
+                        </div>
+                        <div class="order-status" :class="getStatusClass(order.status)">
+                            {{getStatusText(order.status)}}
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-primary" v-if="order.status === 1" @click="payOrder(order)">
+                                立即付款
+                            </button>
+                            <button class="btn btn-secondary" v-else @click="viewOrder(order)">
+                                view detail
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="empty-orders" v-if="recentOrders.length === 0">
+                        <div class="empty-icon">📦</div>
+                        <p>暂无订单记录</p>
+                        <a href="/" class="btn btn-primary">去购物</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="./js/vue.js"></script>
 <script src="./js/axios.min.js"></script>
 <script src="js/common.js"></script>
@@ -40,28 +221,116 @@
         data() {
             return {
                 util,
-                user: null
+                user: {
+                    username: 'Jack',
+                    phone: '13900112224',
+                    balance: 97988,
+                    points: 1245
+                },
+                orderStats: {
+                    pending: 2,
+                    paid: 1,
+                    completed: 5
+                },
+                recentOrders: []
             }
         },
         created() {
             this.getUserInfo();
+            this.getOrderStats();
+            this.getRecentOrders();
         },
         methods: {
-            getUserInfo() {
-                // 获取完整的用户信息对象
+            getRecentOrders() {
                 const userInfo = util.store.get("user-info");
-                console.log("Retrieved user info from store:", userInfo);
-                // 从中提取用户ID
-                const userId = userInfo.userId;
-                console.log("Fetching user info for userId:", userId);
-                axios.get(`/users/${userId}`)
-                    .then(resp => {
-                        console.log("User info response:", resp);
-                        this.user = resp;
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
+                if (userInfo && userInfo.userId) {
+                    axios.get(`/orders/my`)
+                        .then(resp => {
+                            this.recentOrders = resp;
+                        })
+                        .catch(err => {
+                            console.log("获取最近订单失败:", err);
+                            // 可以在这里设置模拟数据作为备用
+                            this.recentOrders = [
+                                {
+                                    id: 1,
+                                    orderNumber: '1978662658739560450',
+                                    amount: 654,
+                                    createTime: '2025-10-16T11:21:54',
+                                    status: 1
+                                },
+                                {
+                                    id: 2,
+                                    orderNumber: '16547793875239365258',
+                                    amount: 1358,
+                                    createTime: '2022-06-06T17:25:24',
+                                    status: 2
+                                },
+                                {
+                                    id: 3,
+                                    orderNumber: '2024121500345678901',
+                                    amount: 299,
+                                    createTime: '2024-12-15T14:30:00',
+                                    status: 3
+                                }
+                            ];
+                        });
+                }
+            },
+
+
+            getUserInfo() {
+                const userInfo = util.store.get("user-info");
+                if (userInfo && userInfo.userId) {
+                    axios.get(`/users/${userInfo.userId}`)
+                        .then(resp => {
+                            this.user = resp;
+                        })
+                        .catch(err => {
+                            console.log("使用模拟数据");
+                            // 使用模拟数据
+                        });
+                }
+            },
+            getOrderStats() {
+                const userInfo = util.store.get("user-info");
+                if (userInfo && userInfo.userId) {
+                    axios.get('/orders/stats')
+                        .then(resp => {
+                            // resp.data 就是后端返回的 Map 转换的 JSON 对象
+                            this.orderStats = resp;
+                            console.log("订单统计数据:", this.orderStats);
+                        })
+                        .catch(err => {
+                            console.log("获取订单统计失败:", err);
+                        });
+                }
+            },
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('zh-CN');
+            },
+            getStatusText(status) {
+                const statusMap = {
+                    1: 'pending',
+                    2: 'paid',
+                    3: 'completed'
+                };
+                return statusMap[status] || 'cancelled';
+            },
+            getStatusClass(status) {
+                const classMap = {
+                    1: 'status-pending',
+                    2: 'status-paid',
+                    3: 'status-completed'
+                };
+                return classMap[status] || 'status-cancelled';
+            },
+            payOrder(order) {
+                location.href = `/pay.html?id=${order.id}`;
+            },
+            viewOrder(order) {
+                location.href = `/order-detail.html?id=${order.id}`;
             }
         }
     });
