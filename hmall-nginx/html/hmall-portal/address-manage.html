@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Management - Hmall</title>
+    <style>
+        /* 保持原有的CSS样式不变 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back-btn {
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .address-list {
+            margin-bottom: 30px;
+        }
+
+        .address-item {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .address-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .address-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .mobile {
+            margin-left: 15px;
+            color: #666;
+        }
+
+        .address-detail {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .address-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .default-tag {
+            background: #ff4d4f;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .edit-btn, .delete-btn {
+            background: none;
+            border: none;
+            color: #1890ff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .delete-btn {
+            color: #ff4d4f;
+        }
+
+        .add-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff4d4f, #ff7875);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .add-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(255, 77, 79, 0.4);
+        }
+
+        /* 模态框样式 */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #1890ff;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #1890ff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #40a9ff;
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .empty-subtext {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* 地区选择器样式 */
+        .region-selectors {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .region-selectors select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .region-selectors select:focus {
+            outline: none;
+            border-color: #1890ff;
+        }
+    </style>
+</head>
+<body>
+<div id="addressApp">
+    <div class="container">
+        <div class="header">
+            <a href="/user-info.html" class="back-btn">←</a>
+            <h1 class="page-title">Address Management</h1>
+        </div>
+
+        <div class="address-list">
+            <div v-if="addressList.length === 0" class="empty-state">
+                <div class="empty-icon">📍</div>
+                <div class="empty-text">暂无收货地址</div>
+                <div class="empty-subtext">点击下方按钮添加第一个收货地址</div>
+            </div>
+
+            <div v-for="addr in addressList" :key="addr.id" class="address-item">
+                <div class="address-header">
+                    <div class="contact-info">
+                        {{addr.contact}}
+                        <span class="mobile">{{handleMobile(addr.mobile)}}</span>
+                    </div>
+                </div>
+                <div class="address-detail">
+                    {{addr.province}}{{addr.city}}{{addr.town}}{{addr.street}}
+                </div>
+                <div class="address-footer">
+                    <div>
+                        <span v-if="addr.isDefault" class="default-tag">default</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="edit-btn" @click="editAddress(addr)">edit</button>
+                        <button class="delete-btn" @click="deleteAddress(addr.id)">remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="add-btn" @click="showAddForm = true">+</button>
+    </div>
+
+    <!-- 添加/编辑地址模态框 -->
+    <div v-if="showAddForm || editingAddress" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">{{editingAddress ? 'edit address' : 'add address'}}</h3>
+                <button class="close-btn" @click="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Contact</label>
+                    <input v-model="currentAddress.contact" type="text" placeholder="Enter contact name">
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input v-model="currentAddress.mobile" type="text" placeholder="Enter mobile number">
+                </div>
+
+                <!-- 修改地区选择部分 -->
+                <div class="form-group">
+                    <label>Region</label>
+                    <div class="region-selectors">
+                        <select v-model="currentAddress.province" @change="onProvinceChange">
+                            <option value="">-- Select Province --</option>
+                            <option v-for="province in provinces" :key="province" :value="province">{{province}}</option>
+                        </select>
+                        <select v-model="currentAddress.city" @change="onCityChange" :disabled="!currentAddress.province">
+                            <option value="">-- Select City --</option>
+                            <option v-for="city in cities" :key="city" :value="city">{{city}}</option>
+                        </select>
+                        <select v-model="currentAddress.town" :disabled="!currentAddress.city">
+                            <option value="">-- Select Town --</option>
+                            <option v-for="town in towns" :key="town" :value="town">{{town}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Street</label>
+                    <input v-model="currentAddress.street" type="text" placeholder="Enter street">
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <input v-model="currentAddress.notes" type="text" placeholder="Additional notes (optional)">
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" v-model="currentAddress.isDefault" :true-value="1" :false-value="0">
+                    <label>设为默认地址</label>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-secondary" @click="closeModal">取消</button>
+                    <button class="btn btn-primary" @click="saveAddress">{{editingAddress ? '保存' : '添加'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/vue.js"></script>
+<script src="./js/axios.min.js"></script>
+<script src="js/common.js"></script>
+<!-- 引入地区数据 -->
+<script src="js/region-data.js"></script>
+
+<script>
+    new Vue({
+        el: '#addressApp',
+        data() {
+            return {
+                addressList: [],
+                showAddForm: false,
+                editingAddress: null,
+                currentAddress: {
+                    contact: '',
+                    mobile: '',
+                    province: '',
+                    city: '',
+                    town: '',
+                    street: '',
+                    notes: '',
+                    isDefault: 0
+                },
+                // 使用完整的地区数据
+                regionData: regionData,
+                provinces: [],
+                cities: [],
+                towns: []
+            }
+        },
+        created() {
+            this.getAddressList();
+            this.initProvinces();
+        },
+        methods: {
+            // 初始化省份列表
+            initProvinces() {
+                this.provinces = Object.keys(this.regionData);
+            },
+
+            getAddressList() {
+                // 从服务器获取地址列表
+                axios.get("/addresses")
+                    .then(resp => {
+                        if (resp) {
+                            this.addressList = resp;
+                        } else {
+                            // 使用模拟数据
+                            this.addressList = [
+                                {
+                                    "id": 61,
+                                    "userId": 2,
+                                    "contact": "李佳兴",
+                                    "mobile": "13301212233",
+                                    "province": "上海市",
+                                    "city": "上海市",
+                                    "town": "浦东新区",
+                                    "street": "航头镇航头路123号",
+                                    "notes": "",
+                                    "isDefault": 1
+                                },
+                                {
+                                    "id": 63,
+                                    "userId": 2,
+                                    "contact": "李小龙",
+                                    "mobile": "13301212233",
+                                    "province": "广东省",
+                                    "city": "佛山市",
+                                    "town": "顺德区",
+                                    "street": "永春武术学校",
+                                    "notes": "",
+                                    "isDefault": 0
+                                }
+                            ];
+                        }
+                    })
+                    .catch(err => {
+                        console.error("获取地址列表失败:", err);
+                        // 使用模拟数据
+                        this.addressList = [
+                            {
+                                "id": 61,
+                                "userId": 2,
+                                "contact": "李佳兴",
+                                "mobile": "13301212233",
+                                "province": "上海市",
+                                "city": "上海市",
+                                "town": "浦东新区",
+                                "street": "航头镇航头路123号",
+                                "notes": "",
+                                "isDefault": 1
+                            }
+                        ];
+                    });
+            },
+
+            editAddress(address) {
+                this.editingAddress = address;
+                this.currentAddress = {...address};
+                // 编辑时初始化对应的城市和区县列表
+                this.onProvinceChange(true);
+                this.onCityChange(true);
+            },
+
+            deleteAddress(addressId) {
+                if (confirm('确定要删除这个地址吗？')) {
+                    axios.delete(`/addresses/${addressId}`)
+                        .then(() => {
+                            this.getAddressList();
+                        })
+                        .catch(err => {
+                            console.error("删除地址失败:", err);
+                            // 模拟删除成功
+                            this.addressList = this.addressList.filter(addr => addr.id !== addressId);
+                        });
+                }
+            },
+
+            saveAddress() {
+                // 表单验证
+                if (!this.validateForm()) {
+                    return;
+                }
+
+                if (this.editingAddress) {
+                    // 更新地址
+                    axios.put(`/addresses/${this.editingAddress.id}`, this.currentAddress)
+                        .then(() => {
+                            this.closeModal();
+                            this.getAddressList();
+                        })
+                        .catch(err => {
+                            console.error("更新地址失败:", err);
+                            alert("更新地址失败，请重试");
+                        });
+                } else {
+                    // 新增地址
+                    axios.post("/addresses", this.currentAddress)
+                        .then(() => {
+                            this.closeModal();
+                            this.getAddressList();
+                        })
+                        .catch(err => {
+                            console.error("添加地址失败:", err);
+                            alert("添加地址失败，请重试");
+                        });
+                }
+            },
+
+            validateForm() {
+                if (!this.currentAddress.contact) {
+                    alert("请输入收货人姓名");
+                    return false;
+                }
+                if (!this.currentAddress.mobile || !/^1[3-9]\d{9}$/.test(this.currentAddress.mobile)) {
+                    alert("请输入正确的手机号码");
+                    return false;
+                }
+                if (!this.currentAddress.province || !this.currentAddress.city || !this.currentAddress.town) {
+                    alert("请选择完整的所在地区");
+                    return false;
+                }
+                if (!this.currentAddress.street) {
+                    alert("请输入详细地址");
+                    return false;
+                }
+                return true;
+            },
+
+            closeModal() {
+                this.showAddForm = false;
+                this.editingAddress = null;
+                this.resetCurrentAddress();
+                this.cities = [];
+                this.towns = [];
+            },
+
+            resetCurrentAddress() {
+                this.currentAddress = {
+                    contact: '',
+                    mobile: '',
+                    province: '',
+                    city: '',
+                    town: '',
+                    street: '',
+                    notes: '',
+                    isDefault: 0
+                };
+            },
+
+            // 省份改变时更新城市列表
+            onProvinceChange(isEdit = false) {
+                if (this.currentAddress.province) {
+                    const provinceData = this.regionData[this.currentAddress.province];
+                    this.cities = Object.keys(provinceData || {});
+
+                    if (!isEdit) {
+                        this.currentAddress.city = '';
+                        this.currentAddress.town = '';
+                        this.towns = [];
+                    } else {
+                        // 编辑模式下，如果当前城市不在新省份的城市列表中，清空城市
+                        if (this.currentAddress.city && !this.cities.includes(this.currentAddress.city)) {
+                            this.currentAddress.city = '';
+                            this.currentAddress.town = '';
+                            this.towns = [];
+                        }
+                    }
+                } else {
+                    this.cities = [];
+                    this.currentAddress.city = '';
+                    this.currentAddress.town = '';
+                    this.towns = [];
+                }
+            },
+
+            // 城市改变时更新区县列表
+            onCityChange(isEdit = false) {
+                if (this.currentAddress.province && this.currentAddress.city) {
+                    const provinceData = this.regionData[this.currentAddress.province];
+                    this.towns = provinceData[this.currentAddress.city] || [];
+
+                    if (!isEdit) {
+                        this.currentAddress.town = '';
+                    } else {
+                        // 编辑模式下，如果当前区县不在新区县列表中，清空区县
+                        if (this.currentAddress.town && !this.towns.includes(this.currentAddress.town)) {
+                            this.currentAddress.town = '';
+                        }
+                    }
+                } else {
+                    this.towns = [];
+                    this.currentAddress.town = '';
+                }
+            },
+
+            handleMobile(mobile) {
+                return mobile ? mobile.substring(0, 3) + '****' + mobile.substring(7) : '';
+            }
+        }
+    });
+</script>
+</body>
+</html>
